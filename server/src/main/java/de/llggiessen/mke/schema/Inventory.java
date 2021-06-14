@@ -1,9 +1,6 @@
 package de.llggiessen.mke.schema;
 
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.Year;
 
 @Entity
@@ -12,11 +9,15 @@ public class Inventory {
     @Id
     @GeneratedValue
     private Long id;
-    @ForeignKey
-    private Long id;
+    @OneToMany
+    @JoinColumn (name = "status_id")
+    @OneToMany
+    @JoinColumn (name = "boat_id")
     private Year year;
-    private String status;
+    private String condition;
 
-    @ForeignKey
-    private
+    public Inventory(Long id, Year year) {
+        this.id = id;
+        this.year = year;
+    }
 }
