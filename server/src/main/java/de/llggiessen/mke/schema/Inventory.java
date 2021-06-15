@@ -10,8 +10,8 @@ public class Inventory {
     @GeneratedValue
     private Long id;
     @ManyToOne
-    @JoinColumn (name = "space_id", referencedColumnName = "id")
-    private Space space;
+    @JoinColumn (name = "spaceUtilisationField_id", referencedColumnName = "id")
+    private SpaceUtilisationField spaceUtilisationField;
     @ManyToOne
     @JoinColumn (name = "boat_id", referencedColumnName = "id")
     private Boat boat;
