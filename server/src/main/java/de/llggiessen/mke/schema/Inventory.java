@@ -9,10 +9,15 @@ public class Inventory {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany
-    @JoinColumn (name = "status_id")
-    @OneToMany
-    @JoinColumn (name = "boat_id")
+    @ManyToOne
+    @JoinColumn (name = "space_id", referencedColumnName = "id")
+    private Space space;
+    @ManyToOne
+    @JoinColumn (name = "boat_id", referencedColumnName = "id")
+    private Boat boat;
+    @ManyToOne
+    @JoinColumn (name = "trailer_id", referencedColumnName = "id")
+    private Trailer trailer;
     private Year year;
     private String condition;
 
