@@ -1,5 +1,7 @@
 package de.llggiessen.mke.schema;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.Year;
 
