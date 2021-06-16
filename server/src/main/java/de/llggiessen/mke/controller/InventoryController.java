@@ -1,6 +1,7 @@
 package de.llggiessen.mke.controller;
 
 import de.llggiessen.mke.repository.InventoryRepository;
+import de.llggiessen.mke.schema.Inventory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,8 @@ public class InventoryController {
     InventoryRepository repository;
 
     @GetMapping("")
-    public Iterable<user>
-    repository.findAllByAttributes()
+    public Iterable<Inventory> getInventory() {
+
+        return repository.findAll();
+    }
 }
