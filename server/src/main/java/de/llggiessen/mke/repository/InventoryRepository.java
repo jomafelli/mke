@@ -2,12 +2,10 @@ package de.llggiessen.mke.repository;
 
 import de.llggiessen.mke.schema.Inventory;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.NoRepositoryBean;
 
 
-@Repository
-@RepositoryRestResource(exported = false)
-public interface InventoryRepository extends CrudRepository<Inventory, Long> {
+@NoRepositoryBean
+public interface InventoryRepository<T extends Inventory> extends CrudRepository<T, Long> {
 
 }
