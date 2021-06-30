@@ -4,24 +4,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.Year;
 
 @Data
 @NoArgsConstructor
 @Inheritance (strategy = InheritanceType.JOINED)
 @Entity
-public abstract class Inventory {
+public class Inventory {
 
     @Id
     @GeneratedValue
     private Long id;
-    private Year year;
-    private String condition;
+    private String year;
 
-    public Inventory(Long id, Year year, String condition) {
+    public Inventory(Long id, String year) {
         this.id = id;
         this.year = year;
-        this.condition = condition;
     }
     /*@Id
     @GeneratedValue

@@ -1,12 +1,9 @@
 package de.llggiessen.mke.schema;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
-import java.time.Year;
+
 
 @Data
 @NoArgsConstructor
@@ -14,11 +11,13 @@ import java.time.Year;
 @EqualsAndHashCode (callSuper = true)
 public class Boat extends Inventory {
     private int seats;
+    private String status;
 
     @Builder
-    public Boat(Long id, int seats, Year year, String condition) {
-        super(id, year, condition);
+    public Boat(Long id, String year, String status, int seats) {
+        super(id, year);
         this.seats = seats;
+        this.status = status;
     }
 
 }
