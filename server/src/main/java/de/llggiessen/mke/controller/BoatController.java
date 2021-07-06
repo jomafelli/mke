@@ -15,13 +15,23 @@ public class BoatController {
     BoatRepository repository;
 
     @GetMapping("")
-    public Iterable<Boat> getBoats() {
-        return repository.findAll();
+    public Iterable<Boat> getBoatsBySeats4(@RequestParam(value = "seats", required = false, defaultValue = "") int seats) {
+        return repository.findAllBySeats4(seats);
     }
 
-    @DeleteMapping("")
-    public void deleteAll() {
-        repository.deleteAll();
+    @GetMapping("")
+    public Iterable<Boat> getBoatsBySeats3(@RequestParam(value = "seats", required = false, defaultValue = "") int seats) {
+        return repository.findAllBySeats3(seats);
+    }
+
+    @GetMapping("")
+    public Iterable<Boat> getBoatsByStatusGood(@RequestParam(value = "status", required = false, defaultValue = "") Boat.Status status) {
+        return repository.findAllByStatusGOOD(status);
+    }
+
+    @GetMapping("")
+    public Iterable<Boat> getBoatsByStatusBroken(@RequestParam(value = "status", required = false, defaultValue = "") Boat.Status status) {
+        return repository.findAllByStatusBROKEN(status);
     }
 
     @PostMapping("")

@@ -20,28 +20,4 @@ public class Inventory {
         this.id = id;
         this.year = year;
     }
-    /*@Id
-    @GeneratedValue
-    private Long id;
-    @ManyToOne
-    @JoinColumn (name = "spaceUtilisationField_id", referencedColumnName = "id")
-    private SpaceUtilisationField spaceUtilisationField;
-    @ManyToOne
-    @JoinColumn (name = "boat_id", referencedColumnName = "id")
-    private Boat boat;
-    @ManyToOne
-    @JoinColumn (name = "trailer_id", referencedColumnName = "id")
-    private Trailer trailer;
-    @ManyToOne
-    @JoinColumn (name = "location_id", referencedColumnName = "id")
-    private Location location;
-    private Year year;
-    private String condition;
-
-    public Inventory(Long id, Year year) {
-        this.id = id;
-        this.year = year;
-    }*/
-
-
 }
