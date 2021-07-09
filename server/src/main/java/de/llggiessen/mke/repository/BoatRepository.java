@@ -13,4 +13,6 @@ public interface BoatRepository extends InventoryRepository<Boat>{
 
     @Query(value = "SELECT * FROM boat WHERE boat.status = 'GOOD' OR boat.status = 'BROKEN'", nativeQuery = true)
     Iterable<Boat> findAllByStatus(@Param("status") Boat.Status status);
+
+
 }

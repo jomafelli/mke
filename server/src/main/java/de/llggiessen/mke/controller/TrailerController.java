@@ -20,6 +20,13 @@ public class TrailerController {
         return repository.findAll();
     }
 
+    @GetMapping(value = "", params = {"price"})
+    public Iterable<Trailer> findAllByPrice(@RequestParam float price) {return repository.findAllByPrice(price);}
+
+    @GetMapping(value = "", params = {"places"})
+    public Iterable<Trailer> findAllByPlaces(@RequestParam String places) {return repository.findAllByPlaces(places);}
+
+
     @DeleteMapping("")
     public void deleteAll() {
         repository.deleteAll();
