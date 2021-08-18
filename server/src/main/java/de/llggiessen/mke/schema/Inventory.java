@@ -17,7 +17,6 @@ public class Inventory {
     private String year;
 
     public Inventory(Long id, String year) {
-        this.id = id;
         this.year = year;
     }
 }

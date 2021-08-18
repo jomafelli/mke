@@ -18,7 +18,7 @@ public class Trailer extends Inventory {
     private int places;
 
     @Builder
-    public Trailer(Long id, String year, int places) {
+    public Trailer(Long id, String year, int places, int price) {
         super(id, year);
         this.places = places;
         this.price = price;

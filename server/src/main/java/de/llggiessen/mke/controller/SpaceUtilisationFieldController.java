@@ -10,17 +10,20 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 @RequestMapping(path = "/space_utilisation_field")
 public class SpaceUtilisationFieldController {
+
     @Autowired
     SpaceUtilisationFieldRepository repository;
 
-    @GetMapping("")
-    public Iterable<SpaceUtilisationField> getSpaceUtilisationField() {
-        return repository.findAll();
+    @GetMapping(value = "", params = "id")
+    public SpaceUtilisationField getSpaceUtilisationFieldById(@RequestParam Long id) {
+        return repository.findById(id).orElseThrow(()->{
+            return new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        });
     }
 
-    @DeleteMapping("")
-    public void deleteAll() {
-        repository.deleteAll();
+    @GetMapping("")
+    public Iterable<SpaceUtilisationField> getSpaceUtilisationFieldByType(@RequestParam(value = "type") String type) {
+        return repository.findAllByType(type);
     }
 
     @PostMapping("")
