@@ -29,7 +29,11 @@ public class SpaceUtilisationFieldController {
     @PostMapping("")
     public SpaceUtilisationField createSpaceUtilisationField(@RequestBody SpaceUtilisationField spaceUtilisationField) {
         try {
-            return repository.save(spaceUtilisationField);
+            if (!repository.existsById(spaceUtilisationField.getId())) {
+                return repository.save(spaceUtilisationField);
+            } else {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ID already exist");
+            }
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }

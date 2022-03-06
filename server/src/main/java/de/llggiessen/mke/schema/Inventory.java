@@ -1,9 +1,11 @@
 package de.llggiessen.mke.schema;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
 
 @Data
 @NoArgsConstructor
@@ -19,4 +21,6 @@ public class Inventory {
     public Inventory(Long id, String year) {
         this.year = year;
     }
+
+    public Long getId() { return id;}
 }

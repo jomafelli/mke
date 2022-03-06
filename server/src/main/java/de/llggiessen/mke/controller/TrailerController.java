@@ -34,7 +34,11 @@ public class TrailerController {
     @PostMapping("")
     public Trailer createTrailer(@RequestBody Trailer trailer) {
         try {
-            return repository.save(trailer);
+            if (!repository.existsById(trailer.getId())) {
+                return repository.save(trailer);
+            } else {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ID already exist");
+            }
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }

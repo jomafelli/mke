@@ -35,7 +35,11 @@ public class BoatController {
     @PostMapping("")
     public Boat createBoat(@RequestBody Boat boat) {
         try {
-            return repository.save(boat);
+            if (!repository.existsById(boat.getId())) {
+                return repository.save(boat);
+            } else {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ID already exist");
+            }
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
