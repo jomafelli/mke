@@ -14,7 +14,7 @@ import de.llggiessen.mke.schema.User;
 public interface UserRepository extends CrudRepository<User, Long> {
 
     @Modifying
-    @Query(value = "DELETE FROM user WHERE user.email = :email", nativeQuery = true)
+      @Query(value = "DELETE FROM user WHERE user.email = :email", nativeQuery = true)
     User deleteByEmail(@Param("email") String email);
 
     @Query(value = "SELECT * FROM user WHERE user.email LIKE %:email%", nativeQuery = true)
